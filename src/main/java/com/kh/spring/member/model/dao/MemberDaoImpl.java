@@ -16,5 +16,10 @@ public class MemberDaoImpl implements MemberDao {
 	public int insertMember(Member member) {
 		return session.insert("member.inserstMember", member);
 	}
+
+	@Override
+	public Member selectOneMember(String id) {
+		return session.selectOne("member.selectOneMember", id);
+	}
 	
 }

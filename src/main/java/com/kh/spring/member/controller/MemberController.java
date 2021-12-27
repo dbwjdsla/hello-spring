@@ -50,7 +50,8 @@ public class MemberController {
 		
 		if(member != null && bcryptPasswordEncoder.matches(password, member.getPassword())) {
 			// 로그인 성공시
-			
+			redirectAttr.addFlashAttribute("msg", "로그인 성공");
+
 		}
 		else {
 			// 로그인 실패시
