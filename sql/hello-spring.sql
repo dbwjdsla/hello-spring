@@ -61,3 +61,24 @@ set password = '$2a$10$xIn77aHI2Hvu6dIcPU7mb.oyV3o2Z7zTbaYYbAggbyZV8l.Kr.jTu'
 where id = 'admin';
 
 commit;
+
+-- memo테이블 생성
+create table memo (
+    no number,
+    memo varchar2(2000),
+    password char(4) not null,
+    reg_date date default sysdate,
+    constraint pk_memo_no primary key(no)
+);
+
+create sequence seq_memo_no;
+
+insert into memo values(seq_memo_no.nextval, '안녕하세요~ 반갑습니다.', '1234', default);
+insert into memo values(seq_memo_no.nextval, '파이널프로젝트 화이팅!', '1234', default);
+insert into memo values(seq_memo_no.nextval, '여보세요~', '1234', default);
+
+select * from memo;
+
+commit;
+
+
