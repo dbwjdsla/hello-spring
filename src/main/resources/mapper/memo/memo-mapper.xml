@@ -12,7 +12,27 @@
 			no desc 
 	</select>
 	<insert id="insertMemo"> 
-		insert into memo(no, memo, password) 
-			values( seq_memo_no.nextval, #{memo}, #{password} ) 
+		insert into 
+			memo(no, memo, password) 
+		values( 
+			seq_memo_no.nextval, 
+			#{memo}, 
+			#{password} 
+		) 
 	</insert>
+	<delete id="deleteMemo"> 
+		delete from 
+			memo 
+		where 
+			no = #{no} 
+	</delete>
+	
+	<select id="selectOneMemo" resultType="memo">
+		select
+			*
+		from
+			memo
+		where
+			no = #{no}
+	</select>
 </mapper>

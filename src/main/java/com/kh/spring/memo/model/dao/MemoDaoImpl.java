@@ -19,7 +19,7 @@ public class MemoDaoImpl implements MemoDao {
 
 	@Override
 	public List<Memo> selectMemoList() {
-		log.debug("서비스 주업무");
+		log.debug("DAO 주업무");
 		return session.selectList("memo.selectMemoList");
 	}
 
@@ -27,7 +27,20 @@ public class MemoDaoImpl implements MemoDao {
 	public int insertMemo(Memo memo) {
 		return session.insert("memo.insertMemo", memo);
 	}
+
+	@Override
+	public int deleteMemo(int no) {
+		return session.delete("memo.deleteMemo", no);
+	}
+
+	@Override
+	public Memo selectOneMemo(int no) {
+		return session.selectOne("memo.selectOneMemo", no);
+	}
+	
+	
 	
 	
 }
+
 
